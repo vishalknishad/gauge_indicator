@@ -10,7 +10,7 @@ dependencies:
   flutter:
     sdk: flutter
   equatable: ^2.0.5
-  collection: ^1.17.0
+  collection:
 
 dev_dependencies:
   flutter_lints: ^2.0.1
