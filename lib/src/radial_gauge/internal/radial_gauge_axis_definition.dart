@@ -23,6 +23,20 @@ class GaugeSegmentDefinition {
   });
 }
 
+extension ClampRadius on Radius {
+  Radius clampValues({
+    required double minimumX,
+    required double minimumY,
+    required double maximumX,
+    required double maximumY,
+  }) {
+    return Radius.elliptical(
+      x.clamp(minimumX, maximumX),
+      y.clamp(minimumY, maximumY),
+    );
+  }
+}
+
 class RadialGaugeAxisDefinition {
   /// Describes a circle placed in the axis center.
   final Rect rect;
@@ -159,7 +173,7 @@ class RadialGaugeAxisDefinition {
 
       final path = calculateRadiusArcPath(
         externalRect,
-        cornerRadius: segment.cornerRadius.clampValues(
+        cornerRadius: segment.cornerRadius.clamp(
           minimumX: 0,
           minimumY: 0,
           maximumX: halfThickness,
