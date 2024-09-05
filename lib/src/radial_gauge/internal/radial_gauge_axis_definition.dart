@@ -173,7 +173,7 @@ class RadialGaugeAxisDefinition {
 
       final path = calculateRadiusArcPath(
         externalRect,
-        cornerRadius: segment.cornerRadius.clamp(
+        cornerRadius: segment.cornerRadius.clampValues(
           minimumX: 0,
           minimumY: 0,
           maximumX: halfThickness,
